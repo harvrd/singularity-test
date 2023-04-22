@@ -21,7 +21,6 @@ namespace Sngty
         // Start is called before the first frame update
         void Start()
         {
-            debugger.Log("Sanity Check");
             try{
 
                 BluetoothManager = new AndroidJavaClass("com.harrysoft.androidbluetoothserial.BluetoothManager");
@@ -65,12 +64,13 @@ namespace Sngty
 
         }
 
-        public void sendMessagfe(string message, DeviceSignature sig)
+        public void sendMessage(string message, DeviceSignature sig)
         {
             for (int i = 0; i < connectedDevices.Count; i++)
             {
                 if (connectedDevices[i].Get<string>("mac") == sig.mac)
                 {
+                    debugger.Log("inside if in singularity manager send message");
                     AndroidJavaObject connectedDevice = connectedDevices[i];
                     AndroidJavaObject deviceInterface = connectedDevice.Call<AndroidJavaObject>("toSimpleDeviceInterface");
                     deviceInterface.Call("sendMessage", message);

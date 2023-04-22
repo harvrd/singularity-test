@@ -65,13 +65,13 @@ public class ExampleCommunicatorScript : MonoBehaviour
         debugger.Log("Error with Singularity: " + errorMessage);
     }
 
-    // public void sendMessage(string message) 
-    // {
+    public void sendMessageAnhPhu(string message) 
+    {
 
-    //     mySingularityManager.sendMessage(message, myDevice);
-    //     debugger.Log("After Send message inside SendMessage!");
+        mySingularityManager.sendMessage(message, myDevice);
+        debugger.Log("After Send message inside SendMessage!");
 
-    // }
+    }
 
     public void printMessage(string message)
     {
